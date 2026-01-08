@@ -2,7 +2,7 @@
  * https://bost.ocks.org/mike/shuffle/
  */
 export function shuffle<T>(array: T[]) {
-  var m = array.length, t, i;
+  let m = array.length, t, i;
 
   // While there remain elements to shuffle…
   while (m) {
