@@ -9,6 +9,7 @@ export interface Scran {
     location?: string
     year?: number
     price?: number // GBP
+    backgroundSize?: 'cover' | 'contain'
 
     percent: number
 }
@@ -20,7 +21,7 @@ export function getSubmittedBy(scran: Scran) {
 }
 
 export function getName(scran: Scran) {
-    return scran.name ?? ["Unknown", "Mysterious", "Intriguing", "Unidentified"][hash(scran.imageUrl, 5)] + " Scran"
+    return scran.name ?? ["Unknown", "Mysterious", "Intriguing", "Unidentified"][hash(scran.imageUrl, 4)] + " Scran"
 }
 
 export function getDescription(scran: Scran) {
@@ -42,39 +43,60 @@ export function getPrice(scran: Scran) {
     return scran.price === 0 ? "FREE" : scran.price ? "£" + scran.price : "No price data"
 }
 
-export function getCopyText(score: Score[]) {
+export function getCopyText(score: Score[], mode: string) {
     // 🟥🟥🟩🟩🟩🟥🟥🟩🟩🟩 6/10 | Practice | https://scrandle.com
-    return `${score.map(s => s ? "🟩" : "🟥").join("")} ${score.reduce((acc, curr) => (curr ? 1 : 0) + acc, 0)}/${score.length} | https://isami-industries.com`
+    return `${score.map(s => s ? "🟩" : "🟥").join("")} ${score.reduce((acc, curr) => (curr ? 1 : 0) + acc, 0)}/${score.length} | ${mode} | https://isami-industries.com`
 }
 
 export const scrans: Scran[] = [
     {
-        submittedBy: 'Ei-kun',
         imageUrl: '/pfp.png',
         price: 1.01,
         percent: 100,
-        description: "this one"
+        backgroundSize: 'contain'
     },
     {
-        submittedBy: 'エイくん',
         imageUrl: '/pfp.png',
         price: 1.01,
         percent: 0,
-        description: "not this one"
-    }
+    },
 ]
-
-export const scranMatches: [number, number][] = [
-    [0, 1],
-    [1, 0],
-    [1, 0],
-    [0, 1],
-    [0, 1],
-    [1, 0],
-    [0, 1],
-    [1, 0],
-    [1, 0],
-    [0, 1],
+export type ScranGame = [number, number][]
+export const scranGames: ScranGame[] = [
+    [
+        [0, 1],
+        [1, 0],
+        [1, 0],
+        [0, 1],
+        [0, 1],
+        [1, 0],
+        [0, 1],
+        [1, 0],
+        [1, 0],
+        [0, 1],
+    ], [
+        [0, 1],
+        [1, 0],
+        [1, 0],
+        [0, 1],
+        [0, 1],
+        [1, 0],
+        [0, 1],
+        [1, 0],
+        [1, 0],
+        [0, 1],
+    ], [
+        [0, 1],
+        [1, 0],
+        [1, 0],
+        [0, 1],
+        [0, 1],
+        [1, 0],
+        [0, 1],
+        [1, 0],
+        [1, 0],
+        [0, 1],
+    ]
 ]
 
 const scranFeedback = [

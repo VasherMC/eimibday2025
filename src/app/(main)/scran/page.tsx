@@ -1,11 +1,24 @@
 "use client"
 
-import { scrans, scranMatches, Score, getFeedback, getPrice, getCountry, getName, getSubmittedBy, getCopyText } from "@/data/scran";
-import { useState } from "react";
+import { scrans, scranGames, Score, getFeedback, getPrice, getCountry, getName, getSubmittedBy, getCopyText, ScranGame } from "@/data/scran";
+import { useEffect, useState } from "react";
 import { ScranDisplay } from "./scranDisplay";
 import { sleep } from "@/util/sleep";
+import { shuffle } from "@/util/shuffle";
 
 export default function Messages() {
+  // Get current game
+  const [currentGame, setCurrentGame] = useState<number>()
+  useEffect(() => {
+    const lastCompleted = localStorage.getItem("last-completed")
+    if (lastCompleted && +lastCompleted >= 0 && +lastCompleted < scranGames.length - 1) {
+      setCurrentGame(+lastCompleted + 1)
+    } else {
+      setCurrentGame(0)
+    }
+  }, [])
+  const [scranMatches, setScranMatches] = useState<ScranGame>()
+  const [isRandom, setIsRandom] = useState(false)
   // Game state
   const [stage, setStage] = useState<'menu' | 'game' | 'results'>('menu')
   const [scores, setScores] = useState<Score[]>(Array(10).fill(null))
@@ -19,23 +32,49 @@ export default function Messages() {
       <h1 className="scran-title">SCRHAMDLE</h1>
       <p className="scran-subtitle">THE THRILLING <s>DAILY</s> GAME OF FOOD COMPARISON</p>
       <hr />
-      <button className="scran-menu-play" onClick={() => {
-        setStage('game')
-        setScores(Array(10).fill(null))
-        setRound(0)
-      }}>
-        <p className="scran-menu-play-title">Play</p>
-        <p>Unlimited, random</p>
-      </button>
+      <div className="scran-play-buttons">
+        <button className="scran-menu-play" onClick={() => {
+          if (currentGame === undefined) return
+          setStage('game')
+          setScranMatches(scranGames[currentGame])
+          setScores(Array(10).fill(null))
+          setRound(0)
+          setIsRandom(false)
+        }}>
+          <p className="scran-menu-play-title">Play</p>
+          <p>Round {(currentGame ?? 0) + 1}/{scranGames.length}</p>
+        </button>
+        <button className="scran-menu-play" onClick={() => {
+          if (currentGame === undefined) return
+          const randomMatches: ScranGame = new Array(10)
+          const randomScrans = shuffle(new Array(scrans.length).fill(0).map((_, i) => i)).slice(0, Math.min(20, scrans.length))
+          for (let i = 0; i < 10; i++) {
+            randomMatches[i] = [randomScrans[i % randomScrans.length], randomScrans[(i + 10) % randomScrans.length]]
+          }
+          setStage('game')
+          console.log(new Array(scrans.length).fill(0).map((_, i) => i))
+          console.log(shuffle(new Array(scrans.length).fill(0).map((_, i) => i)))
+          console.log(randomScrans)
+          console.log(randomMatches)
+          setScranMatches(randomMatches)
+          setScores(Array(10).fill(null))
+          setRound(0)
+          setIsRandom(true)
+        }}>
+          <p className="scran-menu-play-title">Practice</p>
+          <p>Unlimited, random</p>
+        </button>
+      </div>
     </div>
   }
 
   const renderGame = () => {
+    if (!scranMatches) return;
     const scranLeft = scrans[scranMatches[round][0]];
     const scranRight = scrans[scranMatches[round][1]];
 
     const onClick = (isWinner: boolean) => {
-      if (animationStage !== 'shown') return;
+      if (animationStage !== 'shown' || currentGame === undefined) return;
       setScores(scores => {
         scores[round] = isWinner;
         return scores.slice();
@@ -47,6 +86,10 @@ export default function Messages() {
           if (round >= scores.length - 1) {
             setRound(0);
             setStage('results');
+            if (!isRandom) {
+            setCurrentGame((currentGame + 1) % scranGames.length)
+            localStorage.setItem("last-completed", currentGame.toString())
+            }
             setFeedback(getFeedback(scores.reduce((acc, curr) => (curr ? 1 : 0) + acc, 0)))
           } else {
             setRound(r => ++r);
@@ -70,14 +113,14 @@ export default function Messages() {
         <ScranDisplay
           scran={scranLeft}
           side="left"
-          isWinner={scranLeft.percent > scranRight.percent}
+          isWinner={scranLeft.percent >= scranRight.percent}
           showPercent={animationStage !== 'shown'}
           onClick={onClick}
         />
         <ScranDisplay
           scran={scranRight}
           side="right"
-          isWinner={scranRight.percent > scranLeft.percent}
+          isWinner={scranRight.percent >= scranLeft.percent}
           showPercent={animationStage !== 'shown'}
           onClick={onClick}
         />
@@ -86,6 +129,7 @@ export default function Messages() {
   }
 
   const renderResults = () => {
+    if (!scranMatches) return;
     const score = scores.reduce((acc, curr) => (curr ? 1 : 0) + acc, 0)
     const left = selectedReview === undefined ? undefined : scrans[scranMatches[selectedReview][0]];
     const right = selectedReview === undefined ? undefined : scrans[scranMatches[selectedReview][1]];
@@ -96,7 +140,7 @@ export default function Messages() {
         <button
           className="scran-clipboard scran-menu-box gray"
           onClick={() => {
-            navigator.clipboard.writeText(getCopyText(scores))
+            navigator.clipboard.writeText(getCopyText(scores, isRandom ? "Practice" : `Round ${+(localStorage.getItem("last-completed") ?? 0) + 1}/${scranGames.length}`))
             setFeedback("Copied result to clipboard")
           }}
         >

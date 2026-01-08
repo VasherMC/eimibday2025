@@ -20,7 +20,8 @@ export function ScranDisplay({
         className="scran-box"
         style={{
             backgroundImage: `url(${scran.imageUrl})`,
-            backgroundSize: "cover",
+            backgroundSize: scran.backgroundSize ?? 'cover',
+            backgroundRepeat: "no-repeat",
             backgroundPosition: "50% 50%",
         }}
         onClick={() => onClick(isWinner)}

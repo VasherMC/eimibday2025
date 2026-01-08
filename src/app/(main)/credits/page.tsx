@@ -1,6 +1,7 @@
 "use client"
 
 import { messages } from "@/data/messages"
+import { Fragment } from "react"
 
 export default function Credits() {
   return <div style={{ textAlign: "center", margin: "auto" }}>
@@ -39,10 +40,10 @@ export default function Credits() {
               <strong>Participants</strong>
             </p>
             <p>
-              {messages.map((m, i) => <>
+              {messages.map((m, i) => <Fragment key={m.id}>
                 {m.from}
                 {i !== messages.length - 1 && <br />}
-              </>)}
+              </Fragment>)}
             </p>
             <p>(will be updated with scran participants once voting is complete)</p>
           </div>
