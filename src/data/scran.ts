@@ -1,12 +1,12 @@
 import { hash } from "@/util/hash"
-import { getFlagClass } from "@/util/flags"
+import { CountryCode, getFlagClass } from "@/util/flags"
 
 export interface Scran {
     imageUrl: string
     submittedBy?: string
     name?: string
     description?: string
-    country?: string
+    country?: CountryCode
     location?: string
     year?: number
     price?: number // GBP
