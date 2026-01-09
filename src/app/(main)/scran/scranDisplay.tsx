@@ -34,7 +34,7 @@ export function ScranDisplay({
         }}>
             {showPercent && getPercent(scran) + "%"}
         </div>
-        <div className="scran-header">{getLocation(scran)}, {getYear(scran)} <span style={{ float: "right" }}>{getCountry(scran)}{getCountryFlagSpaces(scran)}<span class={getCountryFlagClass(scran)}/></span></div>
+        <div className="scran-header">{getLocation(scran)}, {getYear(scran)} <span style={{ float: "right" }}>{getCountry(scran)}{getCountryFlagSpaces(scran)}<span className={getCountryFlagClass(scran)}/></span></div>
         <div className="scran-footer" style={{
             display: 'flex',
             flexDirection: side === 'right' ? 'row' : 'row-reverse',
