@@ -46,7 +46,12 @@ export function ScranDisplay({
                 <p className="scran-name">{getName(scran)}</p>
                 <p>{getDescription(scran)}{getPrice(scran)}</p>
             </div>
-            <div style={{ marginTop: "auto", fontStyle: "italic" }}>Submitted by {getSubmittedBy(scran)}</div>
+            <div className="scran-submitter" style={{
+                textAlign: side === 'right' ? 'right' : 'left',
+                marginTop: "auto", marginBottom: "auto"
+            }}>
+                {getSubmittedBy(scran)}
+            </div>
         </div>
     </div>
 }
