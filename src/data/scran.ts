@@ -1,4 +1,5 @@
 import { hash } from "@/util/hash"
+import { getFlagClass } from "@/util/flags"
 
 export interface Scran {
     imageUrl: string
@@ -29,7 +30,11 @@ export function getDescription(scran: Scran) {
 }
 
 export function getCountry(scran: Scran) {
-    return (scran.country ?? "")
+    return scran.country ?? ""
+}
+
+export function getCountryFlagSpaces(scran: Scran) {
+    return getFlagClass(scran.country) ? "\xa0\xa0" : ""
 }
 
 export function getCountryFlagClass(scran: Scran) {

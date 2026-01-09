@@ -1,5 +1,6 @@
 import { forwardRef } from "react"
-import { getCountry, getDescription, getLocation, getName, getPrice, getPercent, getSubmittedBy, getYear, Scran } from "../../../data/scran"
+import { getCountry, getCountryFlagSpaces, getCountryFlagClass, getDescription, getLocation, getName, getPrice, getPercent, getSubmittedBy, getYear, Scran } from "../../../data/scran"
+import "flag-icons/css/flag-icons.min.css";
 
 interface ScranDisplayProps {
     scran: Scran
@@ -33,7 +34,7 @@ export function ScranDisplay({
         }}>
             {showPercent && getPercent(scran) + "%"}
         </div>
-        <div className="scran-header">{getLocation(scran)}, {getYear(scran)} <span style={{ float: "right" }}>{getCountry(scran)}</span></div>
+        <div className="scran-header">{getLocation(scran)}, {getYear(scran)} <span style={{ float: "right" }}>{getCountry(scran)}{getCountryFlagSpaces(scran)}<span class={getCountryFlagClass(scran)}/></span></div>
         <div className="scran-footer" style={{
             display: 'flex',
             flexDirection: side === 'right' ? 'row' : 'row-reverse',
