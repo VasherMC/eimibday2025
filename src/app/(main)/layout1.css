@@ -87,13 +87,13 @@ nav {
     z-index: 3;
 
     .logo {
-        margin: 1.25rem;
+        margin: 1rem 1rem;
         padding: 0;
         margin-right: auto;
         display: flex;
 
         img {
-            height: 80px;
+            height: 90px;
 
         }
     }
@@ -110,7 +110,7 @@ nav {
 .profile-picture-background {
     background: linear-gradient(165deg, rgba(191, 245, 29, 1) 0%, rgba(197, 252, 25, 1) 49%, rgba(255, 197, 230, 1) 51%, rgba(255, 219, 238, 1) 100%);
     border-radius: 100%;
-    margin: 1.5rem;
+    margin-right: 1.5rem;
 
     .profile-picture {
         width: 3rem;
