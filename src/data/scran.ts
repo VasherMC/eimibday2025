@@ -40,7 +40,7 @@ export function getYear(scran: Scran) {
 }
 
 export function getPrice(scran: Scran) {
-    return scran.price === 0 ? "FREE" : scran.price ? "£" + scran.price : "No price data"
+    return scran.price === 0 ? "FREE" : scran.price ? "£" + scran.price.toFixed(2) : "No price data"
 }
 
 export function getCopyText(score: Score[], mode: string) {
