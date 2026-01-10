@@ -19,7 +19,7 @@ export default function Credits() {
           <div className="paper-background"></div>
           <p></p>
         </div>
-        <div className="paper-lines">
+        <div className="paper-lines credits">
           <div className="paper-background noise"></div>
           <div>
             <p>
