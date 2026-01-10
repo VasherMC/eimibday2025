@@ -55,7 +55,7 @@ export default function Credits() {
                 (
                   Array.from(
                     new Set(scrans.filter(scran => scran.submittedBy != null).map(scran => scran.submittedBy))
-                  ).sort(function (a, b) {return a.toLowerCase().localeCompare(b.toLowerCase())})
+                  ).sort(function (a, b) {return (a?.toLowerCase() ?? '').localeCompare(b?.toLowerCase() ?? '')})
                 ).map((m, i) => <Fragment key={i}>
                 {m !== '' && m}
                 {i !== messages.length - 1 && <br />}
