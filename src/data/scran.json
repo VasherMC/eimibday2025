@@ -1,15 +1,15 @@
 [
   {
-    "id": "00",
-    "imageUrl": "/scran/00.jpg",
-    "percent": 0,
-    "year": null,
-    "submittedBy": null,
-    "country": null,
-    "price": 0,
-    "location": null,
-    "name": null,
-    "description": null
+    "id": "63",
+    "imageUrl": "/scran/63.jpg",
+    "percent": 59.46,
+    "year": 2026,
+    "submittedBy": "MisterYura",
+    "country": "USA",
+    "price": 3.3,
+    "location": "Jollibee",
+    "name": "Jolly Spaghetti",
+    "backgroundPosition": "bottom 20% center"
   },
   {
     "id": "01",
@@ -33,7 +33,6 @@
     "price": 8.2,
     "location": "Coors Field",
     "name": "Rocky mountain oysters",
-    "description": "",
     "backgroundPosition": "center top 40%"
   },
   {
@@ -46,7 +45,6 @@
     "price": 9.7,
     "location": "Local deli",
     "name": "French dip sandwich au jus",
-    "description": "",
     "backgroundPosition": "left 40% top 60%"
   },
   {
@@ -126,7 +124,7 @@
     "description": "Hot dog in steamed bun with Detroit chii, onions, and mustard"
   },
   {
-    "id": 10,
+    "id": "10",
     "imageUrl": "/scran/10.jpg",
     "percent": 65.77,
     "year": 2025,
@@ -139,7 +137,7 @@
     "backgroundSize": "contain"
   },
   {
-    "id": 11,
+    "id": "11",
     "imageUrl": "/scran/11.jpg",
     "percent": 83.78,
     "year": 2025,
@@ -148,11 +146,10 @@
     "price": 0.1,
     "location": "Local grocer",
     "name": "Sunflower seeds",
-    "description": "",
     "backgroundPosition": "bottom 10% center"
   },
   {
-    "id": 12,
+    "id": "12",
     "imageUrl": "/scran/12.jpg",
     "percent": 46.85,
     "year": 2025,
@@ -161,11 +158,10 @@
     "price": 22.3,
     "location": "Local Indian pizzeria",
     "name": "Tandoori chicken pizza",
-    "description": "",
     "backgroundPosition": "top 30% center"
   },
   {
-    "id": 13,
+    "id": "13",
     "imageUrl": "/scran/13.jpg",
     "percent": 74.77,
     "year": 2025,
@@ -174,11 +170,10 @@
     "price": 10.8,
     "location": "Anime Weekend Atlanta",
     "name": "Konbini smashburger",
-    "description": "",
     "backgroundPosition": "left 40% center"
   },
   {
-    "id": 14,
+    "id": "14",
     "imageUrl": "/scran/14.jpg",
     "percent": 70.27,
     "year": 2025,
@@ -191,7 +186,7 @@
     "backgroundPosition": "top 40% center"
   },
   {
-    "id": 15,
+    "id": "15",
     "imageUrl": "/scran/15.jpg",
     "percent": 59.46,
     "year": 2025,
@@ -204,12 +199,12 @@
     "backgroundPosition": "bottom center"
   },
   {
-    "id": 16,
+    "id": "16",
     "imageUrl": "/scran/16.jpg",
     "percent": 20.72,
     "year": 2025,
     "submittedBy": "Qilmey",
-    "country": "",
+    "country": null,
     "price": 13.9,
     "location": "Fix",
     "name": "Dubai Chocolate",
@@ -217,20 +212,19 @@
     "backgroundPosition": "bottom 20% center"
   },
   {
-    "id": 17,
+    "id": "17",
     "imageUrl": "/scran/17.jpg",
     "percent": 87.39,
     "year": 2025,
-    "submittedBy": "",
+    "submittedBy": null,
     "country": "USA",
     "price": 4.3,
     "location": "Dick's Drive-In",
     "name": "Deluxe double cheeseburger",
-    "description": "",
     "backgroundPosition": "bottom center"
   },
   {
-    "id": 18,
+    "id": "18",
     "imageUrl": "/scran/18.jpg",
     "percent": 81.98,
     "year": 2025,
@@ -243,7 +237,7 @@
     "backgroundPosition": "top 20% center"
   },
   {
-    "id": 19,
+    "id": "19",
     "imageUrl": "/scran/19.jpg",
     "percent": 85.59,
     "year": 2025,
@@ -255,7 +249,7 @@
     "description": "Lemonade included in total price"
   },
   {
-    "id": 20,
+    "id": "20",
     "imageUrl": "/scran/20.jpg",
     "percent": 37.84,
     "year": 2025,
@@ -267,7 +261,7 @@
     "description": "Price includes bag of chips (not pictured)"
   },
   {
-    "id": 21,
+    "id": "21",
     "imageUrl": "/scran/21.jpg",
     "percent": 56.76,
     "year": 2025,
@@ -276,11 +270,10 @@
     "price": 22.5,
     "location": "Local Chinese buffet",
     "name": "Four pounds of Chinese takeout",
-    "description": "",
     "backgroundPosition": "left 20% center"
   },
   {
-    "id": 22,
+    "id": "22",
     "imageUrl": "/scran/22.jpg",
     "percent": 38.74,
     "year": 2025,
@@ -289,11 +282,10 @@
     "price": 5.9,
     "location": "Pizza Hut",
     "name": "Cheesy bread",
-    "description": "",
     "backgroundPosition": "top 30% center"
   },
   {
-    "id": 23,
+    "id": "23",
     "imageUrl": "/scran/23.jpg",
     "percent": 77.48,
     "year": 2025,
@@ -302,16 +294,15 @@
     "price": 9.7,
     "location": "L&L Hawaiian Barbecue",
     "name": "Katsu chicken cutlet with gravy",
-    "description": "",
     "backgroundSize": "contain"
   },
   {
-    "id": 24,
+    "id": "24",
     "imageUrl": "/scran/24.jpg",
     "percent": 73.87,
     "year": 2025,
     "submittedBy": "Qilmey",
-    "country": "",
+    "country": null,
     "price": 1.4,
     "location": "Local stall",
     "name": "Young lamb skewer",
@@ -319,7 +310,7 @@
     "backgroundPosition": "top 20% left 20%"
   },
   {
-    "id": 25,
+    "id": "25",
     "imageUrl": "/scran/25.jpg",
     "percent": 23.42,
     "year": 2025,
@@ -332,7 +323,7 @@
     "backgroundSize": "contain"
   },
   {
-    "id": 26,
+    "id": "26",
     "imageUrl": "/scran/26.jpg",
     "percent": 58.56,
     "year": 2025,
@@ -344,20 +335,19 @@
     "description": "With cheese sticks, cheese curds, mac & cheese bites"
   },
   {
-    "id": 27,
+    "id": "27",
     "imageUrl": "/scran/27.jpg",
     "percent": 40.54,
     "year": 2025,
     "submittedBy": "Qilmey",
-    "country": "",
+    "country": null,
     "price": 5,
     "location": "Local fish grill",
     "name": "Half a jaw of tuna",
-    "description": "",
     "backgroundPosition": "left 30% top 0%"
   },
   {
-    "id": 28,
+    "id": "28",
     "imageUrl": "/scran/28.jpg",
     "percent": 63.96,
     "year": 2025,
@@ -370,7 +360,7 @@
     "backgroundPosition": "left 30% bottom 30%"
   },
   {
-    "id": 29,
+    "id": "29",
     "imageUrl": "/scran/29.jpg",
     "percent": 43.24,
     "year": 2025,
@@ -378,11 +368,10 @@
     "country": "USA",
     "price": 13.8,
     "location": "Anime Weekend Atlanta",
-    "name": "Beef hotdog with tater tots",
-    "description": ""
+    "name": "Beef hotdog with tater tots"
   },
   {
-    "id": 30,
+    "id": "30",
     "imageUrl": "/scran/30.jpg",
     "percent": 90.09,
     "year": 2025,
@@ -391,11 +380,10 @@
     "price": 6.3,
     "location": "Little Caesars",
     "name": "Classic Pepperoni",
-    "description": "",
     "backgroundPosition": "right 40% top 0%"
   },
   {
-    "id": 31,
+    "id": "31",
     "imageUrl": "/scran/31.jpg",
     "percent": 50.45,
     "year": 2025,
@@ -407,7 +395,7 @@
     "description": "Barbacoa and chipotle chicken, iced tea included"
   },
   {
-    "id": 32,
+    "id": "32",
     "imageUrl": "/scran/32.jpg",
     "percent": 32.43,
     "year": 2025,
@@ -416,11 +404,10 @@
     "price": 0.7,
     "location": "Walmart",
     "name": "Blue Prime",
-    "description": "",
     "backgroundPosition": "bottom left 40%"
   },
   {
-    "id": 33,
+    "id": "33",
     "imageUrl": "/scran/33.jpg",
     "percent": 66.67,
     "year": 2025,
@@ -433,7 +420,7 @@
     "backgroundPosition": "bottom center"
   },
   {
-    "id": 34,
+    "id": "34",
     "imageUrl": "/scran/34.jpg",
     "percent": 49.55,
     "year": 2025,
@@ -442,11 +429,10 @@
     "price": 12,
     "location": "Local Chinese restaurant",
     "name": "Dim sum",
-    "description": "",
     "backgroundPosition": "left 20% center"
   },
   {
-    "id": 35,
+    "id": "35",
     "imageUrl": "/scran/35.jpg",
     "percent": 78.38,
     "year": 2026,
@@ -454,11 +440,10 @@
     "country": "USA",
     "price": 4.1,
     "location": "Dairy Queen",
-    "name": "Small chocolate-dipped strawberry Blizzard",
-    "description": ""
+    "name": "Small chocolate-dipped strawberry Blizzard"
   },
   {
-    "id": 36,
+    "id": "36",
     "imageUrl": "/scran/36.jpg",
     "percent": 41.44,
     "year": 2026,
@@ -471,7 +456,7 @@
     "backgroundSize": "contain"
   },
   {
-    "id": 37,
+    "id": "37",
     "imageUrl": "/scran/37.jpg",
     "percent": 59.46,
     "year": 2026,
@@ -484,7 +469,7 @@
     "backgroundPosition": "right 40% top 30%"
   },
   {
-    "id": 38,
+    "id": "38",
     "imageUrl": "/scran/38.jpg",
     "percent": 35.14,
     "year": 2026,
@@ -497,7 +482,7 @@
     "backgroundSize": "contain"
   },
   {
-    "id": 39,
+    "id": "39",
     "imageUrl": "/scran/39.jpg",
     "percent": 80.18,
     "year": 2026,
@@ -505,11 +490,10 @@
     "country": "USA",
     "price": 7.4,
     "location": "Ho Ho Chinese Restaurant",
-    "name": "American Chinese fast food",
-    "description": ""
+    "name": "American Chinese fast food"
   },
   {
-    "id": 40,
+    "id": "40",
     "imageUrl": "/scran/40.jpg",
     "percent": 46.85,
     "year": 2026,
@@ -522,7 +506,7 @@
     "backgroundPosition": "bottom 30% left 30%"
   },
   {
-    "id": 41,
+    "id": "41",
     "imageUrl": "/scran/41.jpg",
     "percent": 63.06,
     "year": 2026,
@@ -535,7 +519,7 @@
     "backgroundPosition": "bottom 30% center"
   },
   {
-    "id": 42,
+    "id": "42",
     "imageUrl": "/scran/42.jpg",
     "percent": 51.35,
     "year": 2026,
@@ -547,7 +531,7 @@
     "description": "With korean spicy ramyeon"
   },
   {
-    "id": 43,
+    "id": "43",
     "imageUrl": "/scran/43.jpg",
     "percent": 46.85,
     "year": 2026,
@@ -560,7 +544,7 @@
     "backgroundPosition": "right 40% center"
   },
   {
-    "id": 44,
+    "id": "44",
     "imageUrl": "/scran/44.jpg",
     "percent": 81.98,
     "year": 2026,
@@ -569,11 +553,10 @@
     "price": 8.9,
     "location": "Local taco foodtruck",
     "name": "Carne fajitas",
-    "description": "",
     "backgroundSize": "contain"
   },
   {
-    "id": 45,
+    "id": "45",
     "imageUrl": "/scran/45.jpg",
     "percent": 85.59,
     "year": 2026,
@@ -582,11 +565,10 @@
     "price": 6.1,
     "location": "Gindaco",
     "name": "Takoyaki",
-    "description": "",
     "backgroundPosition": "left 0% center"
   },
   {
-    "id": 46,
+    "id": "46",
     "imageUrl": "/scran/46.jpg",
     "percent": 71.17,
     "year": 2026,
@@ -595,11 +577,10 @@
     "price": 17.5,
     "location": "KFC",
     "name": "Kentucky Christmas",
-    "description": "",
     "backgroundPosition": "bottom 10% center"
   },
   {
-    "id": 47,
+    "id": "47",
     "imageUrl": "/scran/47.jpg",
     "percent": 78.38,
     "year": 2026,
@@ -608,11 +589,10 @@
     "price": 4.7,
     "location": "Train station",
     "name": "Shumai bento",
-    "description": "",
     "backgroundPosition": "bottom 40% center"
   },
   {
-    "id": 48,
+    "id": "48",
     "imageUrl": "/scran/48.jpg",
     "percent": 69.37,
     "year": 2026,
@@ -621,11 +601,10 @@
     "price": 11.7,
     "location": "Beachside restaurant",
     "name": "Shirasu margherita pizza",
-    "description": "",
     "backgroundPosition": "right 0% center"
   },
   {
-    "id": 49,
+    "id": "49",
     "imageUrl": "/scran/49.jpg",
     "percent": 61.26,
     "year": 2026,
@@ -637,20 +616,20 @@
     "description": "Fatty mackerel w/ shiso leaves and pickled ginger"
   },
   {
-    "id": 50,
+    "id": "50",
     "imageUrl": "/scran/50.jpg",
     "percent": 45.95,
     "year": 2026,
     "submittedBy": "YuuShi「ユウ氏」",
     "country": "JPN",
-    "price": "",
+    "price": null,
     "location": "Train station pop-up store",
     "name": "WhiteRose\" milk manju",
     "description": "Filling of white pea beans and powdered milk",
     "backgroundSize": "contain"
   },
   {
-    "id": 51,
+    "id": "51",
     "imageUrl": "/scran/51.jpg",
     "percent": 74.77,
     "year": 2026,
@@ -659,11 +638,10 @@
     "price": 13.9,
     "location": "Deli Delicious",
     "name": "Tri tip steak sandwich",
-    "description": "",
     "backgroundPosition": "left 40% center"
   },
   {
-    "id": 52,
+    "id": "52",
     "imageUrl": "/scran/52.webp",
     "percent": 36.94,
     "year": 2026,
@@ -672,11 +650,10 @@
     "price": 15.1,
     "location": "Wendy's",
     "name": "Baconator w/ nuggies and fries",
-    "description": "",
     "backgroundSize": "contain"
   },
   {
-    "id": 53,
+    "id": "53",
     "imageUrl": "/scran/53.png",
     "percent": 76.58,
     "year": 2026,
@@ -688,7 +665,7 @@
     "description": "Puerto Rican chicken skewers"
   },
   {
-    "id": 54,
+    "id": "54",
     "imageUrl": "/scran/54.jpg",
     "percent": 58.56,
     "year": 2026,
@@ -700,7 +677,7 @@
     "description": "Brisket, Texas sausage, pulled pork, mac and cheese"
   },
   {
-    "id": 55,
+    "id": "55",
     "imageUrl": "/scran/55.jpg",
     "percent": 60.36,
     "year": 2026,
@@ -713,7 +690,7 @@
     "backgroundPosition": "top 20% right 40%"
   },
   {
-    "id": 56,
+    "id": "56",
     "imageUrl": "/scran/56.jpg",
     "percent": 58.56,
     "year": 2026,
@@ -726,7 +703,7 @@
     "backgroundPosition": "bottom 0% center"
   },
   {
-    "id": 57,
+    "id": "57",
     "imageUrl": "/scran/57.jpg",
     "percent": 84.68,
     "year": 2025,
@@ -739,7 +716,7 @@
     "backgroundPosition": "bottom 30% center"
   },
   {
-    "id": 58,
+    "id": "58",
     "imageUrl": "/scran/58.jpg",
     "percent": 74.77,
     "year": 2026,
@@ -752,7 +729,7 @@
     "backgroundPosition": "top 40% left 40%"
   },
   {
-    "id": 59,
+    "id": "59",
     "imageUrl": "/scran/59.jpg",
     "percent": 74.77,
     "year": 2025,
@@ -761,11 +738,10 @@
     "price": 1.6,
     "location": "Sheetz",
     "name": "Two hot dogs",
-    "description": "",
     "backgroundPosition": "top 40% center"
   },
   {
-    "id": 60,
+    "id": "60",
     "imageUrl": "/scran/60.jpg",
     "percent": 70.27,
     "year": 2025,
@@ -777,7 +753,7 @@
     "description": "Topped w/ beer cheese, onion straws, and bacon"
   },
   {
-    "id": 61,
+    "id": "61",
     "imageUrl": "/scran/61.jpg",
     "percent": 72.97,
     "year": 2026,
@@ -786,11 +762,10 @@
     "price": 1.1,
     "location": "Sushi restaurant",
     "name": "Fortune cookie and a beer",
-    "description": "",
     "backgroundPosition": "top 30% right 30%"
   },
   {
-    "id": 62,
+    "id": "62",
     "imageUrl": "/scran/62.jpg",
     "percent": 48.65,
     "year": 2026,
@@ -799,20 +774,6 @@
     "price": 19.9,
     "location": "Shake Shack (airport)",
     "name": "Cheeseburger, cheese fries, drink",
-    "description": "",
     "backgroundPosition": "bottom 40% center"
-  },
-  {
-    "id": 63,
-    "imageUrl": "/scran/63.jpg",
-    "percent": 59.46,
-    "year": 2026,
-    "submittedBy": "MisterYura",
-    "country": "USA",
-    "price": 3.3,
-    "location": "Jollibee",
-    "name": "Jolly Spaghetti",
-    "description": "",
-    "backgroundPosition": "bottom 20% center"
   }
 ]
