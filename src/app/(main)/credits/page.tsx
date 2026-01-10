@@ -6,7 +6,7 @@ import { Fragment } from "react"
 export default function Credits() {
   return <div style={{ textAlign: "center", margin: "auto" }}>
     <div
-      className="paper-wrapper"
+      className="paper-wrapper credits"
       onScroll={e => {
         e.stopPropagation()
       }}

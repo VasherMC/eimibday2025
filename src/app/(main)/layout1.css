@@ -867,3 +867,9 @@ nav {
         }
     }
 }
+
+.credits {
+    strong {
+        text-decoration: underline;
+    }
+}
