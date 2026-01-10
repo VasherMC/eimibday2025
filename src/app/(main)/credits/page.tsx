@@ -34,7 +34,8 @@ export default function Credits() {
             </p>
             <p>
               Schn<br />
-              Liquid Skelie
+              Liquid Skelie<br />
+              MisterYura
             </p>
             <p>
               <strong>Participants</strong>
