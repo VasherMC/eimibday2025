@@ -520,6 +520,7 @@ nav {
                         font-weight: bold;
                         font-size: 1.25rem;
                     }
+
                     .scran-submitter {
                         font-style: italic;
                         font-size: 0.75rem;
@@ -527,7 +528,7 @@ nav {
                     }
 
                     .scran-submitter:before {
-                        content: "Submitted by:\A"; 
+                        content: "Submitted by:\A";
                         white-space: pre;
                         font-size: 75%;
                         font-weight: normal;
@@ -574,6 +575,13 @@ nav {
             }
         }
 
+        .scran-play-buttons-wrapper {
+            display: flex;
+            gap: 4px;
+            width: 100%;
+            justify-content: center;
+        }
+
         .scran-play-buttons {
             display: flex;
             flex-direction: column;
@@ -583,25 +591,49 @@ nav {
                 color: white;
                 font-size: 12px;
                 line-height: 18px;
-                width: 250px;
+                width: 212px;
                 padding: 0.5rem 1rem;
-                margin: auto;
 
-                &:nth-child(1) {
-                    border-radius: 0.75rem 0.75rem 0 0;
+                &.top,
+                &.full {
+                    border-top-left-radius: 0.75rem;
+                    border-top-right-radius: 0.75rem;
+                }
+
+                &.bottom,
+                &.full {
+                    border-bottom-left-radius: 0.75rem;
+                    border-bottom-right-radius: 0.75rem;
+                }
+
+                &:disabled {
+                    cursor: not-allowed;
+                }
+
+                &.blue {
                     background: #0d6efd;
 
-                    &:hover {
+                    &:hover,
+                    &:disabled {
                         background: #0b5ed7;
                     }
                 }
 
-                &:nth-child(2) {
-                    border-radius: 0 0 0.75rem 0.75rem;
+                &.grey {
                     background: #6c757d;
 
-                    &:hover {
+                    &:hover,
+                    &:disabled {
                         background: #5c636a;
+                    }
+                }
+
+                &.black {
+                    background: #212529;
+
+                    &:hover,
+                    &:disabled {
+                        background: #424649;
                     }
                 }
 
@@ -705,9 +737,29 @@ nav {
             background: var(--scran-results-blue);
         }
 
+        &.left {
+            margin-right: auto;
+        }
+
         &button {
             font-size: 1rem;
             line-height: 150%;
+        }
+    }
+
+    .scran-menu-replay-buttons {
+        display: flex;
+        gap: 4px;
+    }
+
+    .scran-menu-replay-button {
+        border-radius: 6px;
+        padding: 4px;
+
+        .scran-menu-replay-num {
+            font-weight: bold;
+            font-size: 1.25rem;
+            line-height: 2rem;
         }
     }
 
