@@ -1,6 +1,7 @@
 import { hash } from "@/util/hash"
 import { CountryCode, getFlagClass } from "@/util/flags"
 import scranJson from './scran.json'
+import scranGameJson from './scranGame.json'
 
 export interface Scran {
     imageUrl: string
@@ -82,42 +83,7 @@ export const scrans: Scran[] = scranJson as Scran[]
 
 // Each game consists of 10 matches between 2 scrans
 export type ScranGame = [number, number][]
-export const scranGames: ScranGame[] = [
-    [
-        [0, 1],
-        [1, 0],
-        [1, 0],
-        [0, 1],
-        [0, 1],
-        [1, 0],
-        [0, 1],
-        [1, 0],
-        [1, 0],
-        [0, 1],
-    ], [
-        [0, 1],
-        [1, 0],
-        [1, 0],
-        [0, 1],
-        [0, 1],
-        [1, 0],
-        [0, 1],
-        [1, 0],
-        [1, 0],
-        [0, 1],
-    ], [
-        [0, 1],
-        [1, 0],
-        [1, 0],
-        [0, 1],
-        [0, 1],
-        [1, 0],
-        [0, 1],
-        [1, 0],
-        [1, 0],
-        [0, 1],
-    ]
-]
+export const scranGames: ScranGam[] = scranGameJson as ScranGame[]
 
 const scranFeedback = [
     ["The Secretive, Hidden Scranner"],
