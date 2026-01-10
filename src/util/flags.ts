@@ -263,7 +263,7 @@ const flagnames_unified = {
 
 export type CountryCode = Uppercase<keyof typeof flagnames_unified>
 
-export function getFlagClass(country?: CountryCode) {
+export function getFlagClass(country?: CountryCode | null) {
     return country && flagnames_unified[(country ?? '').toLowerCase() as keyof typeof flagnames_unified] ? 'fi fi-' + flagnames_unified[country.toLowerCase() as keyof typeof flagnames_unified] : ''
 }
 

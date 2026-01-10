@@ -1,6 +1,6 @@
 "use client"
 
-import { scrans, scranGames, Score, getFeedback, getPrice, getPercent, getCountry, getName, getSubmittedBy, getCopyText, ScranGame } from "@/data/scran";
+import { scrans, scranGames, Score, getFeedback, getPrice, getPercent, getCountry, getName, getSubmittedBy, getCopyText, ScranGame, preloadImages } from "@/data/scran";
 import { useEffect, useState } from "react";
 import { ScranDisplay } from "./scranDisplay";
 import { sleep } from "@/util/sleep";
@@ -41,6 +41,7 @@ export default function Messages() {
             if (currentGame === undefined) return
             setStage('game')
             setScranMatches(scranGames[currentGame])
+            preloadImages(scranGames[currentGame])
             setScores(Array(10).fill(null))
             setRound(0)
             setIsRandom(false)
@@ -51,16 +52,15 @@ export default function Messages() {
           <button className="scran-menu-play bottom grey" onClick={() => {
             if (currentGame === undefined) return
             const randomMatches: ScranGame = new Array(10)
-            const randomScrans = shuffle(new Array(scrans.length).fill(0).map((_, i) => i)).slice(0, Math.min(20, scrans.length))
+            // Get 20 random scrans, excluding 0
+            const randomScrans = shuffle(new Array(scrans.length-1).fill(0).map((_, i) => i+1)).slice(0, Math.min(20, scrans.length))
+            // Pair them up
             for (let i = 0; i < 10; i++) {
               randomMatches[i] = [randomScrans[i % randomScrans.length], randomScrans[(i + 10) % randomScrans.length]]
             }
             setStage('game')
-            console.log(new Array(scrans.length).fill(0).map((_, i) => i))
-            console.log(shuffle(new Array(scrans.length).fill(0).map((_, i) => i)))
-            console.log(randomScrans)
-            console.log(randomMatches)
             setScranMatches(randomMatches)
+            preloadImages(randomMatches)
             setScores(Array(10).fill(null))
             setRound(0)
             setIsRandom(true)
@@ -92,6 +92,7 @@ export default function Messages() {
           setStage('game')
           setCurrentGame(+game)
           setScranMatches(scranGames[+game])
+          preloadImages(scranGames[+game])
           setScores(Array(10).fill(null))
           setRound(0)
           setIsRandom(false)

@@ -1,17 +1,18 @@
 import { hash } from "@/util/hash"
 import { CountryCode, getFlagClass } from "@/util/flags"
+import scranJson from './scran.json'
 
 export interface Scran {
     imageUrl: string
-    submittedBy?: string
-    name?: string
-    description?: string
-    country?: CountryCode
-    location?: string
-    year?: number
-    price?: number // GBP
-    backgroundSize?: 'cover' | 'contain'
-    backgroundPosition?: string
+    submittedBy?: string | null
+    name?: string | null
+    description?: string | null
+    country?: CountryCode | null
+    location?: string | null
+    year?: number | null
+    price?: number // GBP | null
+    backgroundSize?: 'cover' | 'contain' | null
+    backgroundPosition?: string | null
 
     percent: number
 }
@@ -63,7 +64,7 @@ export function getCopyText(score: Score[], mode: string) {
     return `${score.map(s => s ? "🟩" : "🟥").join("")} ${score.reduce((acc, curr) => (curr ? 1 : 0) + acc, 0)}/${score.length} | ${mode} | https://isami-industries.com`
 }
 
-export const scrans: Scran[] = [
+export const testScrans: Scran[] = [
     {
         imageUrl: '/pfp.png',
         price: 1.01,
@@ -76,6 +77,8 @@ export const scrans: Scran[] = [
         percent: 0,
     },
 ]
+
+export const scrans: Scran[] = scranJson as Scran[]
 
 // Each game consists of 10 matches between 2 scrans
 export type ScranGame = [number, number][]
@@ -132,4 +135,13 @@ const scranFeedback = [
 
 export function getFeedback(score: number) {
     return scranFeedback[score][Math.floor(Math.random() * scranFeedback[score].length)]
+}
+
+export function preloadImages(game: ScranGame) {
+    game.forEach(([s1, s2]) => {
+        const img1 = new Image();
+        img1.src = scrans[s1].imageUrl
+        const img2 = new Image();
+        img2.src = scrans[s2].imageUrl
+    });
 }
