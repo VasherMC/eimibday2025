@@ -1,14 +1,16 @@
 "use client"
 
-import { scrans, scranGames, Score, getFeedback, getPrice, getPercent, getCountry, getName, getSubmittedBy, getCopyText, ScranGame } from "@/data/scran";
+import { scrans, scranGames, Score, getFeedback, getPrice, getPercent, getCountry, getName, getSubmittedBy, getCopyText, ScranGame, preloadImages } from "@/data/scran";
 import { useEffect, useState } from "react";
 import { ScranDisplay } from "./scranDisplay";
 import { sleep } from "@/util/sleep";
 import { shuffle } from "@/util/shuffle";
+import { getHistoryFromStorage, ScranHistory } from "@/util/scranHistory";
 
 export default function Messages() {
   // Get current game
   const [currentGame, setCurrentGame] = useState<number>()
+  const [gameHistory, setGameHistory] = useState<ScranHistory>()
   useEffect(() => {
     const lastCompleted = localStorage.getItem("last-completed")
     if (lastCompleted && +lastCompleted >= 0 && +lastCompleted < scranGames.length - 1) {
@@ -16,11 +18,12 @@ export default function Messages() {
     } else {
       setCurrentGame(0)
     }
+    setGameHistory(getHistoryFromStorage())
   }, [])
   const [scranMatches, setScranMatches] = useState<ScranGame>()
   const [isRandom, setIsRandom] = useState(false)
   // Game state
-  const [stage, setStage] = useState<'menu' | 'game' | 'results'>('menu')
+  const [stage, setStage] = useState<'menu' | 'round-select' | 'game' | 'results'>('menu')
   const [scores, setScores] = useState<Score[]>(Array(10).fill(null))
   const [round, setRound] = useState(0)
   const [animationStage, setAnimationStage] = useState<'percent' | 'hidden' | 'shown'>('shown')
@@ -32,38 +35,78 @@ export default function Messages() {
       <h1 className="scran-title">SCRHAMDLE</h1>
       <p className="scran-subtitle">THE THRILLING <s>DAILY</s> GAME OF FOOD COMPARISON</p>
       <hr />
-      <div className="scran-play-buttons">
-        <button className="scran-menu-play" onClick={() => {
+      <div className="scran-play-buttons-wrapper">
+        <div className="scran-play-buttons">
+          <button className="scran-menu-play top blue" onClick={() => {
+            if (currentGame === undefined) return
+            setStage('game')
+            setScranMatches(scranGames[currentGame])
+            preloadImages(scranGames[currentGame])
+            setScores(Array(10).fill(null))
+            setRound(0)
+            setIsRandom(false)
+          }}>
+            <p className="scran-menu-play-title">Play</p>
+            <p>Round {(currentGame ?? 0) + 1}/{scranGames.length}</p>
+          </button>
+          <button className="scran-menu-play bottom grey" onClick={() => {
+            if (currentGame === undefined) return
+            const randomMatches: ScranGame = new Array(10)
+            // Get 20 random scrans, excluding 0
+            const randomScrans = shuffle(new Array(scrans.length-1).fill(0).map((_, i) => i+1)).slice(0, Math.min(20, scrans.length))
+            // Pair them up
+            for (let i = 0; i < 10; i++) {
+              randomMatches[i] = [randomScrans[i % randomScrans.length], randomScrans[(i + 10) % randomScrans.length]]
+            }
+            setStage('game')
+            setScranMatches(randomMatches)
+            preloadImages(randomMatches)
+            setScores(Array(10).fill(null))
+            setRound(0)
+            setIsRandom(true)
+          }}>
+            <p className="scran-menu-play-title">Practice</p>
+            <p>Unlimited, random</p>
+          </button>
+        </div>
+        {gameHistory?.[scranGames.length - 1] && <div className="scran-play-buttons">
+          <button className="scran-menu-play full black" onClick={() => {
+            if (currentGame === undefined) return
+            setStage('round-select')
+          }}>
+            <p className="scran-menu-play-title">Select Round</p>
+            <p>Replay a previous round</p>
+          </button>
+        </div>}
+      </div>
+    </div>
+  }
+
+  const renderRoundSelect = () => {
+    if (!gameHistory) return
+    return <div className="scran-menu">
+      <div className="scran-menu-replay-buttons">
+      {Object.entries(gameHistory).map(([game, scores]) => <>
+        <button className="scran-menu-replay-button" onClick={() => {
           if (currentGame === undefined) return
           setStage('game')
-          setScranMatches(scranGames[currentGame])
+          setCurrentGame(+game)
+          setScranMatches(scranGames[+game])
+          preloadImages(scranGames[+game])
           setScores(Array(10).fill(null))
           setRound(0)
           setIsRandom(false)
         }}>
-          <p className="scran-menu-play-title">Play</p>
-          <p>Round {(currentGame ?? 0) + 1}/{scranGames.length}</p>
+          <p className="scran-menu-replay-num">{+game+1}</p>
+          <p className="scran-menu-replay-score">{scores?.reduce((acc, curr) => (curr ? 1 : 0) + acc, 0)}/10</p>
         </button>
-        <button className="scran-menu-play" onClick={() => {
-          if (currentGame === undefined) return
-          const randomMatches: ScranGame = new Array(10)
-          const randomScrans = shuffle(new Array(scrans.length).fill(0).map((_, i) => i)).slice(0, Math.min(20, scrans.length))
-          for (let i = 0; i < 10; i++) {
-            randomMatches[i] = [randomScrans[i % randomScrans.length], randomScrans[(i + 10) % randomScrans.length]]
-          }
-          setStage('game')
-          console.log(new Array(scrans.length).fill(0).map((_, i) => i))
-          console.log(shuffle(new Array(scrans.length).fill(0).map((_, i) => i)))
-          console.log(randomScrans)
-          console.log(randomMatches)
-          setScranMatches(randomMatches)
-          setScores(Array(10).fill(null))
-          setRound(0)
-          setIsRandom(true)
-        }}>
-          <p className="scran-menu-play-title">Practice</p>
-          <p>Unlimited, random</p>
-        </button>
+      </>)}
+      </div>
+      <hr />
+      <div className="scran-results-footer">
+        <button className="scran-menu-box gray left" onClick={() => {
+          setStage("menu")
+        }}>Back</button>
       </div>
     </div>
   }
@@ -87,8 +130,14 @@ export default function Messages() {
             setRound(0);
             setStage('results');
             if (!isRandom) {
-            setCurrentGame((currentGame + 1) % scranGames.length)
-            localStorage.setItem("last-completed", currentGame.toString())
+              setCurrentGame((currentGame + 1) % scranGames.length)
+              localStorage.setItem("last-completed", currentGame.toString())
+              const newHistory: ScranHistory = {
+                [currentGame.toString()]: scores.map(s => !!s), // To make TS happy; should already all be bools atp
+                ...gameHistory, // Always keep the first scores for each round
+              }
+              localStorage.setItem("round-history", JSON.stringify(newHistory))
+              setGameHistory(newHistory)
             }
             setFeedback(getFeedback(scores.reduce((acc, curr) => (curr ? 1 : 0) + acc, 0)))
           } else {
@@ -201,6 +250,7 @@ export default function Messages() {
   }}>
     <div className="scran-blur">
       {stage === 'menu' && renderMenu()}
+      {stage === 'round-select' && renderRoundSelect()}
       {stage === 'game' && renderGame()}
       {stage === 'results' && renderResults()}
     </div>
