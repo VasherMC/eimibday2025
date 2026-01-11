@@ -353,6 +353,8 @@ nav {
     to {translate: 0%;}
 }
 
+@keyframes bounce {from {top:0;transform:scale(1,1);} to{top:4rem;transform:scale(1.3,0.5);}}
+
 .paper-wrapper:has(~ .setting-sticky #scroll-anim:checked) {
     z-index: calc(100 - sibling-index()); /* leftmost on top */
     transform: none !important;
